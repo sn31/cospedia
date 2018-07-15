@@ -1,25 +1,34 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { StyleSheet, Text, View } from 'react-native';
+import { BarCodeScanner, Permissions } from 'expo';
 
-export default class LinksScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Links',
-  };
-
+export default class BarCodeScannerExample extends React.Component {
+  state = {
+    hasCameraPermission: null,
+  }
+  async componentWillMount() {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasCameraPermission: status === 'granted' });
+  }
   render() {
-    return (
-      <ScrollView style={styles.container}>
-       
-      </ScrollView>
-    );
+    const { hasCameraPermission } = this.state;
+    if (hasCameraPermission === null) {
+      return <Text> Requesting for camera permissions </Text>;
+    } else if (hasCameraPermission === false) {
+      return <Text> No access to camera </Text>;
+    } else {
+      return (
+        <View style={{ flex: 1}}>
+          <BarCodeScanner
+            onBarCodeRead={this._handleBarCodeRead}
+            style={StyleSheet.absoluteFill}
+          />
+        </View>
+      );
+    }
+  }
+  _handleBarCodeRead = ({ type, data }) => {
+    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
