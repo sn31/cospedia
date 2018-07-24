@@ -54,15 +54,6 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-history'}
-    />
-  ),
-};
 
 export default createBottomTabNavigator({
   HomeStack,
