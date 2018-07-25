@@ -1,9 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
-import Colors from '../constants/Colors';
-
-export default class TabBarIcon extends React.Component {
+export default class HomeIcon extends React.Component {
   render() {
     return (
       <Image 

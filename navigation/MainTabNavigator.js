@@ -3,7 +3,10 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import {BarCodeScanner, Permissions} from 'expo';
 
-import TabBarIcon from '../components/TabBarIcon';
+
+import ScanIcon from '../components/ScanIcon';
+import SettingsIcon from '../components/SettingsIcon';
+import HomeIcon from '../components/HomeIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -15,7 +18,7 @@ const HomeStack = createStackNavigator({
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
+    <HomeIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
@@ -33,7 +36,7 @@ const LinksStack = createStackNavigator({
 LinksStack.navigationOptions = {
   tabBarLabel: 'Scan',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
+    <ScanIcon
       focused={focused}
       name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-scan'}
     />
@@ -45,9 +48,9 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'History',
+  tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
+    <SettingsIcon
       focused={focused}
       name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-history'}
     />
