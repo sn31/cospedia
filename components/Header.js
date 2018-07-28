@@ -15,11 +15,9 @@ export default class Header extends React.Component {
 const styles = StyleSheet.create({
     header: {
         height: 70,
-        //flexDirection: 'column',
-        //alignSelf: 'stretch',
         paddingTop:35,
         paddingBottom: 0,
-        backgroundColor: '#df80ff'
+        backgroundColor: '#ffffff'
     },
 
     header_text: {

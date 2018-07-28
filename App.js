@@ -3,6 +3,8 @@ import { Platform, StatusBar, StyleSheet, View, Text,TouchableOpacity } from 're
 import { AppLoading, Asset, Font, Icon} from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import Header from './components/Header';
+import SignUp from './screens/SignUpScreen.js';
+import * as firebase from 'firebase';
 
 export default class App extends React.Component {
   state = {
@@ -21,11 +23,12 @@ export default class App extends React.Component {
         />
       );
     } else {
+      //Before retuning AppNavigator, the user must sign up or sign in first.
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <Header/>
-          <AppNavigator />
+          <SignUp/> 
         </View>
       );
     }
@@ -56,7 +59,19 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
+
 }
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCsXeeqQGEXp7WQAB7WU4blJmS0rCIAZaU",
+  authDomain: "makeup-genius-702f9.firebaseapp.com",
+  databaseURL: "https://makeup-genius-702f9.firebaseio.com",
+  projectId: "makeup-genius-702f9",
+  storageBucket: "makeup-genius-702f9.appspot.com",
+  messagingSenderId: "416277350179"
+};
+  firebase.initializeApp(firebaseConfig);
+
 
 const styles = StyleSheet.create({
   container: {
