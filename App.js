@@ -1,19 +1,35 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View, Text,TouchableOpacity } from 'react-native';
-import { AppLoading, Asset, Font, Icon} from 'expo';
+import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import Header from './components/Header';
-import SignUp from './screens/SignUpScreen.js';
+import SignUp from './screens/Authentication/SignUpScreen.js';
+import LoginScreen from './screens/Authentication/LoginScreen.js';
 import * as firebase from 'firebase';
 
 export default class App extends React.Component {
+  componentWillMount() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyCsXeeqQGEXp7WQAB7WU4blJmS0rCIAZaU",
+      authDomain: "makeup-genius-702f9.firebaseapp.com",
+      databaseURL: "https://makeup-genius-702f9.firebaseio.com",
+      projectId: "makeup-genius-702f9",
+      storageBucket: "makeup-genius-702f9.appspot.com",
+      messagingSenderId: "416277350179"
+    }
+    firebase.initializeApp(firebaseConfig);
+    firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
+  }
   state = {
     isLoadingComplete: false,
-    
   };
 
+  onAuthStateChanged =(user) => {
+    this.setState({isAuthenticationReady: true});
+    this.setState({isAuthenticated: !!user})
+  }
   render() {
-    
+
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
@@ -27,8 +43,8 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <Header/>
-          <SignUp/> 
+          <Header />
+          <LoginScreen />
         </View>
       );
     }
@@ -62,21 +78,9 @@ export default class App extends React.Component {
 
 }
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCsXeeqQGEXp7WQAB7WU4blJmS0rCIAZaU",
-  authDomain: "makeup-genius-702f9.firebaseapp.com",
-  databaseURL: "https://makeup-genius-702f9.firebaseio.com",
-  projectId: "makeup-genius-702f9",
-  storageBucket: "makeup-genius-702f9.appspot.com",
-  messagingSenderId: "416277350179"
-};
-  firebase.initializeApp(firebaseConfig);
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'red',
   },
 });
-

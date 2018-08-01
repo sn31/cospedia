@@ -6,7 +6,7 @@ export default class Header extends React.Component {
     render () {
         return (
             <View style ={styles.header}>
-             <Text style={styles.header_text}> Makeup Journal</Text>
+             <Text style={styles.header_text}> Cospedia</Text>
              </View>
         );
     }
@@ -26,3 +26,5 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     }
 });
+
+export {Header}
