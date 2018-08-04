@@ -1,4 +1,4 @@
-# Makeup Genius
+# Cospedia
 This is a react-native mobile application built as part of She's Coding - Seattle 2018 Summer Code-A-Thon. This app was built using Expo.
 
 ## Features:
@@ -10,7 +10,7 @@ This is a react-native mobile application built as part of She's Coding - Seattl
 - Makeup tutorials and skin care suggestions
 
 
-# Getting Starting
+## Getting Starting
 1. Clone Repository
 
 ```
@@ -25,3 +25,12 @@ $ git clone https://github.com/sn31/makeup-journal-code-a-thon.git
  ```
  $ exp start
  ```
+
+## Technologies Used
+
+* Visual Studio Code
+* React
+* Reac Native
+* Expo
+* FireBase
+* Git & GitHub
