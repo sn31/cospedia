@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar,Image, StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import { StackActions, NavigationActions} from 'react-navigation';
 import * as firebase from 'firebase';
 
 export default class LoginScreen extends React.Component {
@@ -19,17 +19,12 @@ export default class LoginScreen extends React.Component {
     }
 
     onCreateAccountPress = () => {
-        var navActions = NavigationActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({routeName: "Signup"})]
-        });
-        this.props.navigation.dispatch(navActions);
+        this.props.navigation.navigate('Signup');
     }
-
     onForgotPasswordPress = () => {
-        var navActions = NavigationActions.reset({
+        var navActions = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({routeName: "ForgotPassword"})]
+            actions: [StackActions.navigate({routeName: "ForgotPassword"})]
         });
         this.props.navigation.dispatch(navActions);
     }
@@ -62,7 +57,7 @@ export default class LoginScreen extends React.Component {
                     autoCorrect={false}
                 />
 
-                <Button title="Login" onPress={this.onLoginPress} />
+                <Button title="Login" onPress={() => this.onLoginPress()} />
                 <Button title="Create account..." onPress={this.onCreateAccountPress} />
                 <Button title="Forgot Password..." onPress={this.onForgotPasswordPress} />
             </View>

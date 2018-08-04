@@ -10,9 +10,16 @@ import HomeIcon from '../components/HomeIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import SignUpScreen from '../screens/Authentication/SignUpScreen.js';
+import LoginScreen from '../screens/Authentication/LoginScreen.js';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  Login: LoginScreen,
+  Signup: SignUpScreen,
+},
+{
+  initialRouteName: 'Login',
 });
 
 HomeStack.navigationOptions = {

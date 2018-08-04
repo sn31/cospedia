@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Text, StatusBar, TextInput, View, StyleSheet, ImageBackground, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { Constants } from 'expo';
 import { Button } from 'react-native-elements';
-import { NavigationActions} from 'react-navigation';
+import { StackActions} from 'react-navigation';
 import * as firebase from 'firebase';
 
-export default class SignUp extends Component {
+export default class SignUpScreen extends Component {
     constructor(props) {
         super(props);
 
@@ -28,9 +28,9 @@ export default class SignUp extends Component {
     }
 
     onBackToLoginPress = () => {
-        var navActions = NavigationActions.reset({
+        var navActions = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({routeName: "Login"})]
+            actions: [StackActions.navigate({routeName: 'Login'})]
         });
         this.props.navigation.dispatch(navActions);
     }

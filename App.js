@@ -5,6 +5,7 @@ import AppNavigator from './navigation/AppNavigator';
 import Header from './components/Header';
 import SignUp from './screens/Authentication/SignUpScreen.js';
 import LoginScreen from './screens/Authentication/LoginScreen.js';
+import HomeStack from './navigation/MainTabNavigator'
 import * as firebase from 'firebase';
 
 export default class App extends React.Component {
@@ -43,8 +44,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <Header />
-          <LoginScreen />
+          <HomeStack />
         </View>
       );
     }
