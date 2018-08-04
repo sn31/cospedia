@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar,Image, StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
+import { Image, StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
 import { StackActions, NavigationActions} from 'react-navigation';
 import * as firebase from 'firebase';
 
@@ -28,7 +28,6 @@ export default class LoginScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar barStyle="light-content" />
                 <View style={styles.header}>
                     <Image source={require('../../assets/images/app-name.png')} style={styles.appLogo}></Image>
                 </View>
@@ -53,8 +52,8 @@ export default class LoginScreen extends React.Component {
                     autoCorrect={false}
                 />
                 <Button title="Login" onPress={() => this.onLoginPress()} />
-                <Button title="Create account..." onPress={this.onCreateAccountPress} />
-                <Button title="Forgot Password..." onPress={this.onForgotPasswordPress} />
+                <Button title="Create account" onPress={this.onCreateAccountPress} />
+                <Button title="Forgot Password" onPress={this.onForgotPasswordPress} />
             </View>
         );
     }
@@ -90,7 +89,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         height: 50,
         width: 200,
-        marginLeft: '20%'
     },
 
     appLogo: {

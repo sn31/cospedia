@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Text, StatusBar, TextInput, View, StyleSheet, ImageBackground, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
+import { Text, Button, TextInput, View, StyleSheet, ImageBackground, Image, Alert } from 'react-native';
 import { Constants } from 'expo';
-import { Button } from 'react-native-elements';
 import { StackActions, NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
@@ -42,7 +41,6 @@ export default class SignUpScreen extends Component {
 
         return (
             <View style={styles.container}>
-                <StatusBar barStyle="light-content" />
                 <View style={styles.header}>
                     <Image source={require('../../assets/images/app-name.png')} style={styles.appLogo}></Image>
                 </View>
@@ -71,17 +69,8 @@ export default class SignUpScreen extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-                <Button onPress={this.onPressSignUp}
-                    title='Sign Up' //needs to change the text color here
-                    style={styles.button}
-                    backgroundColor='#861D41'
-                />
-                <Button onPress={this.onBackToLoginPress}
-                    title="Back to Login" //needs to change the text color here
-                    style={styles.button}
-                    backgroundColor='#861D41'
-                />
-
+                <Button title="Sign Up" onPress={this.onPressSignUp} style={styles.button}/>
+                <Button title="Back to Login" onPress={this.onBackToLoginPress} style={styles.button}/>
             </View>
         )
     }
@@ -132,7 +121,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
         height: 50,
         width: 200,
-        marginLeft: '20%'
     },
 
     appLogo: {
