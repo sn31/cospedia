@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, Button, Alert } from 'react-native';
-import { NavigationActions } from 'react-navigation';
+import { StackActions, NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
 export default class ForgotPasswordScreen extends React.Component {
@@ -22,11 +22,7 @@ export default class ForgotPasswordScreen extends React.Component {
     }
 
     onBackToLoginPress = () => {
-        var navActions = NavigationActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({routeName: "Login"})]
-        });
-        this.props.navigation.dispatch(navActions);
+        this.props.navigation.navigate('Login');
     }
 
     render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, StatusBar, TextInput, View, StyleSheet, ImageBackground, Image, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { Constants } from 'expo';
 import { Button } from 'react-native-elements';
-import { StackActions} from 'react-navigation';
+import { StackActions, NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
 export default class SignUpScreen extends Component {
@@ -28,11 +28,7 @@ export default class SignUpScreen extends Component {
     }
 
     onBackToLoginPress = () => {
-        var navActions = StackActions.reset({
-            index: 0,
-            actions: [StackActions.navigate({routeName: 'Login'})]
-        });
-        this.props.navigation.dispatch(navActions);
+        this.props.navigation.navigate('Login');
     }
 
     renderCurrentState() {
@@ -59,7 +55,6 @@ export default class SignUpScreen extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-
                 <TextInput style={styles.input}
                     value={this.state.password}
                     onChangeText={(text) => { this.setState({ password: text }) }}
@@ -68,7 +63,6 @@ export default class SignUpScreen extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-
                 <TextInput style={styles.input}
                     value={this.state.passwordConfirm}
                     onChangeText={(text) => { this.setState({ passwordConfirm: text }) }}
@@ -77,16 +71,14 @@ export default class SignUpScreen extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-
-                <Button onPress={() => this.onPressSignUp()}
+                <Button onPress={this.onPressSignUp}
                     title='Sign Up' //needs to change the text color here
                     style={styles.button}
                     backgroundColor='#861D41'
                 />
-
-                <Button onPress={() => this.onBackToLogInPress()}
+                <Button onPress={this.onBackToLoginPress}
                     title="Back to Login" //needs to change the text color here
-                    style={styles.button} 
+                    style={styles.button}
                     backgroundColor='#861D41'
                 />
 

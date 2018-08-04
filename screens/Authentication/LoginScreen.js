@@ -22,11 +22,7 @@ export default class LoginScreen extends React.Component {
         this.props.navigation.navigate('Signup');
     }
     onForgotPasswordPress = () => {
-        var navActions = StackActions.reset({
-            index: 0,
-            actions: [StackActions.navigate({routeName: "ForgotPassword"})]
-        });
-        this.props.navigation.dispatch(navActions);
+        this.props.navigation.navigate('ForgotPassword');
     }
 
     render() {
@@ -56,7 +52,6 @@ export default class LoginScreen extends React.Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-
                 <Button title="Login" onPress={() => this.onLoginPress()} />
                 <Button title="Create account..." onPress={this.onCreateAccountPress} />
                 <Button title="Forgot Password..." onPress={this.onForgotPasswordPress} />

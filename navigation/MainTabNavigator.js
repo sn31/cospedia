@@ -12,11 +12,13 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import SignUpScreen from '../screens/Authentication/SignUpScreen.js';
 import LoginScreen from '../screens/Authentication/LoginScreen.js';
+import ForgotPasswordScreen from '../screens/Authentication/ForgotPasswordScreen.js';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
   Login: LoginScreen,
   Signup: SignUpScreen,
+  ForgotPassword: ForgotPasswordScreen,
 },
 {
   initialRouteName: 'Login',
