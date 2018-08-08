@@ -3,7 +3,6 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import {BarCodeScanner, Permissions} from 'expo';
 
-
 import ScanIcon from '../components/ScanIcon';
 import SettingsIcon from '../components/SettingsIcon';
 import HomeIcon from '../components/HomeIcon';
@@ -14,7 +13,7 @@ import SignUpScreen from '../screens/Authentication/SignUpScreen.js';
 import LoginScreen from '../screens/Authentication/LoginScreen.js';
 import ForgotPasswordScreen from '../screens/Authentication/ForgotPasswordScreen.js';
 
-const HomeStack = createStackNavigator({
+const MainTabNavigator = createStackNavigator({
   Home: HomeScreen,
   Login: LoginScreen,
   Signup: SignUpScreen,
@@ -24,7 +23,7 @@ const HomeStack = createStackNavigator({
   initialRouteName: 'Login',
 });
 
-HomeStack.navigationOptions = {
+MainTabNavigator.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (
     <HomeIcon
@@ -68,7 +67,7 @@ SettingsStack.navigationOptions = {
 
 
 export default createBottomTabNavigator({
-  HomeStack,
+  MainTabNavigator,
   LinksStack,
   SettingsStack,
 });

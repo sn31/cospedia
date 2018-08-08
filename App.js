@@ -1,12 +1,14 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-import AppNavigator from './navigation/AppNavigator';
+import TabNavigator from './navigation/AppNavigator';
 import Header from './components/Header';
 import SignUp from './screens/Authentication/SignUpScreen.js';
 import LoginScreen from './screens/Authentication/LoginScreen.js';
-import HomeStack from './navigation/MainTabNavigator'
+import HomeScreen from './screens/HomeScreen';
+import MainTabNavigator from './navigation/MainTabNavigator'
 import * as firebase from 'firebase';
+import AppNavigator from './navigation/AppNavigator';
 
 export default class App extends React.Component {
   componentWillMount() {
@@ -40,11 +42,10 @@ export default class App extends React.Component {
         />
       );
     } else {
-      //Before retuning AppNavigator, the user must sign up or sign in first.
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <HomeStack />
+          {(this.state.isAuthenticated) ? <TabNavigator /> : <MainTabNavigator/>}
         </View>
       );
     }
