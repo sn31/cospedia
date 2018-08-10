@@ -7,16 +7,22 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import * as firebase from 'firebase';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  onSignOutPress = () => {
+    firebase.auth().signOut();
+  }
+  
   render() {
     return (
       <View style={styles.container}>
@@ -44,6 +50,7 @@ export default class HomeScreen extends React.Component {
               Hello world
             </Text>
           </View>
+          <Button title="Sign Out" onPress={() => this.onSignOutPress()} />
         </ScrollView>
       </View>
     );
