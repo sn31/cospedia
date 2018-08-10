@@ -1,7 +1,6 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
-import TabNavigator from './navigation/AppNavigator';
 import Header from './components/Header';
 import SignUp from './screens/Authentication/SignUpScreen.js';
 import LoginScreen from './screens/Authentication/LoginScreen.js';
@@ -45,7 +44,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          {(this.state.isAuthenticated) ? <TabNavigator /> : <MainTabNavigator/>}
+          {(this.state.isAuthenticated) ? <AppNavigator /> : <MainTabNavigator/>}
         </View>
       );
     }
