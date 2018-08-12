@@ -40,7 +40,7 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.getStartedContainer}>
 
-            <Text style={styles.getStartedText}>Welcome to your makeup journal!</Text>
+            <Text style={styles.getStartedText}>Welcome to Cospedia!</Text>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               
