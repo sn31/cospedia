@@ -5,11 +5,12 @@ import { createBottomTabNavigator } from 'react-navigation';
 import Colors from '../constants/Colors';
 import MainTabNavigator from './MainTabNavigator';
 import HomeScreen from '../screens/HomeScreen';
+import LoginScreen from '../screens/Authentication/LoginScreen';
 
 export default createBottomTabNavigator(
   {
     Test: {
-      screen: HomeScreen,
+      screen: LoginScreen,
     },
   },
   {
@@ -34,9 +35,5 @@ export default createBottomTabNavigator(
           />;
       },
     }),
-    // tabBarComponent: TabBarBottom,
-    // tabBarPosition: 'bottom',
-    // animationEnabled: false,
-    // swipeEnabled: false,
   }
 );

@@ -19,9 +19,8 @@ const MainTabNavigator = createStackNavigator({
   Signup: SignUpScreen,
   ForgotPassword: ForgotPasswordScreen,
 },
-{
-  initialRouteName: 'Login',
-});
+
+);
 
 MainTabNavigator.navigationOptions = {
   tabBarLabel: 'Home',
