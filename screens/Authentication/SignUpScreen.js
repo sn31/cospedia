@@ -69,7 +69,7 @@ export default class SignUpScreen extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-                <Button title="Sign Up" onPress={this.onPressSignUp} style={styles.button}/>
+                <Button title="Sign Up" onPress={this.onPressSignUp.bind(this)} style={styles.button}/>
                 <Button title="Back to Login" onPress={this.onBackToLoginPress} style={styles.button}/>
             </View>
         )
