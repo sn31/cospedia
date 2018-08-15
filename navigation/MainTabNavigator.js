@@ -12,16 +12,16 @@ import SettingsScreen from '../screens/SettingsScreen';
 import SignUpScreen from '../screens/Authentication/SignUpScreen.js';
 import LoginScreen from '../screens/Authentication/LoginScreen.js';
 import ForgotPasswordScreen from '../screens/Authentication/ForgotPasswordScreen.js';
+import { DrawerNavigator } from '../navigation/SideMenuNavigator';
 
 const MainTabNavigator = createStackNavigator({
-  Home: HomeScreen,
+  Home: DrawerNavigator,
   Login: LoginScreen,
   Signup: SignUpScreen,
   ForgotPassword: ForgotPasswordScreen,
 },
 
 );
-
 MainTabNavigator.navigationOptions = {
   tabBarLabel: 'Home',
   tabBarIcon: ({ focused }) => (

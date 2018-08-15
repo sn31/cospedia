@@ -9,14 +9,29 @@ import {
   View,
   Button
 } from 'react-native';
+import { Icon } from 'react-native-elements';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import * as firebase from 'firebase';
 
+
+
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   static navigationOptions = {
-    header: null,
+    // header: null,
+    title: 'Home',
+    headerStyle: {
+      backgroundColor: '#F38C9F',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
   };
 
   onSignOutPress = () => {
@@ -24,9 +39,17 @@ export default class HomeScreen extends React.Component {
   }
   
   render() {
+    let navigation = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <Icon
+            name='menu'
+            size={30}
+            color={'#F38C9F'}
+            underlayColor={'white'}
+            onPress={() => this.props.navigation.openDrawer()}
+          />
           <View style={styles.welcomeContainer}>
             <Image
               source={
