@@ -30,8 +30,16 @@ export default class App extends React.Component {
     this.setState({isAuthenticationReady: true});
     this.setState({isAuthenticated: !!user})
   }
-  render() {
 
+  closeControlPanel = () => {
+    this._drawer.close()
+  };
+  
+  openControlPanel = () => {
+    this._drawer.open()
+  };
+
+  render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
@@ -42,10 +50,10 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          {(this.state.isAuthenticated) ? <MainTabNavigator/> :<AppNavigator /> }
-        </View>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            {(this.state.isAuthenticated) ? <MainTabNavigator/> :<AppNavigator /> }
+          </View>
       );
     }
   }
