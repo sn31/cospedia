@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { RkButton, RkCard } from 'react-native-ui-kitten';
+import { RkButton, RkCard, RkTheme } from 'react-native-ui-kitten';
+
+
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -10,18 +12,14 @@ export default class SettingsScreen extends React.Component {
   render() {
 
     return (
-      <View>
-        
+      <View rkCardHeader style={styles.container}>
         <RkCard>
-          <View rkCardHeader style={styles.container}>
-            <Text>User Profile</Text>
+          <View>
+            <Text style={styles.text}>User Profile</Text>
           </View>
           <Image rkCardImg source={require('../assets/images/homepage.jpg')} />
           <View rkCardContent>
-            <Text> quick brown fox jumps over the lazy dog</Text>
-          </View>
-          <View rkCardFooter>
-            <Text>Footer</Text>
+            <Text> Here's where your beauty profile will be!</Text>
           </View>
         </RkCard>
         <RkButton>Click me!</RkButton>
@@ -34,7 +32,13 @@ export default class SettingsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%',
     backgroundColor: '#861D41',
+  },
+
+  text: {
+    color: 'black',
+    fontSize: 16,
   }
 });
+
