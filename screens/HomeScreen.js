@@ -43,13 +43,13 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <Icon
+          {/* <Icon
             name='menu'
             size={30}
             color={'#F38C9F'}
             underlayColor={'white'}
             onPress={() => this.props.navigation.openDrawer()}
-          />
+          /> */}
           <View style={styles.welcomeContainer}>
             <Image
               source={

@@ -13,13 +13,33 @@ import SignUpScreen from '../screens/Authentication/SignUpScreen.js';
 import LoginScreen from '../screens/Authentication/LoginScreen.js';
 import ForgotPasswordScreen from '../screens/Authentication/ForgotPasswordScreen.js';
 import { DrawerNavigator } from '../navigation/SideMenuNavigator';
+import { Icon } from '../node_modules/react-native-elements';
 
 const MainTabNavigator = createStackNavigator({
   Home: DrawerNavigator,
   Login: LoginScreen,
   Signup: SignUpScreen,
   ForgotPassword: ForgotPasswordScreen,
-},
+},{
+  navigationOptions: ({ navigation }) => ({
+    title: navigation.state.routeName,
+    headerLeft: (
+      <Icon
+      name='menu'
+      size={30}
+      color={'#fff'}
+      underlayColor={'#F38C9F'}
+      onPress={() => navigation.openDrawer()}
+      />
+    ),
+    headerStyle: {
+      backgroundColor: '#F38C9F',
+    },
+    headerTitleStyle: {
+      color: '#fff',
+    }
+  })
+}
 
 );
 MainTabNavigator.navigationOptions = {
