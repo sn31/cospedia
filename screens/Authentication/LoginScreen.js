@@ -67,8 +67,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     header: {
-
-        padding: 20,
+        marginTop: 80,
         paddingBottom: 5,
         alignItems: 'center'
     },
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     button: {
-        marginTop: 20,
+        marginTop: 40,
         height: 50,
         width: 200,
     },
