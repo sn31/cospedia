@@ -4,16 +4,6 @@ import { ScrollView, Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const styles = StyleSheet.create({
-    container: {
-        paddingTop: 35,
-        flex: 1,
-    },
-    button: {
-        backgroundColor: '#F38C9F',
-    }
-});
-
 class DrawerContent extends Component {
     navigateToScreen = (route) => () => {
         const navigate = NavigationActions.navigate({
@@ -21,21 +11,43 @@ class DrawerContent extends Component {
         });
         this.props.navigation.dispatch(navigate);
     }
-    render () {
+    render() {
         return (
             <View style={styles.container}>
                 <ScrollView>
                     <Button
                         raised
-                        title='Login'
+                        title='Sign Out'
                         buttonStyle={styles.button}
-                        onPress={this.navigateToScreen('Login')}/>
+                        onPress={this.navigateToScreen('Login')} />
+                        <Button
+                        raised
+                        title='Settings'
+                        buttonStyle={styles.button}
+                        onPress={this.navigateToScreen('Settings')} />
+                        <Button
+                        raised
+                        title='Scanner'
+                        buttonStyle={styles.button}
+                        onPress={this.navigateToScreen('Scanner')} />
                 </ScrollView>
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 35,
+        flex: 1,
+    },
+    button: {
+        backgroundColor: '#F38C9F',
+        marginBottom: 10
+    }
+});
+
 DrawerContent.propTypes = {
-  navigation: PropTypes.object
+    navigation: PropTypes.object
 };
 export default DrawerContent;

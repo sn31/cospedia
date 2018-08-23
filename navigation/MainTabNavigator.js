@@ -18,6 +18,7 @@ import { Icon } from '../node_modules/react-native-elements';
 const MainTabNavigator = createStackNavigator({
   Home: DrawerNavigator,
   Login: LoginScreen,
+  Scanner: LinksScreen,
   Signup: SignUpScreen,
   ForgotPassword: ForgotPasswordScreen,
 },{
