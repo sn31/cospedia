@@ -1,0 +1,337 @@
+body {
+  background-image: url(../img/make-up5.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Cinzel', serif;
+}
+
+.navbar {
+  display: block;
+  text-align: right;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /*border: 1px solid grey;*/
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+  margin-top: 54px;
+  margin-left: -15px;
+  margin-right: -15px;
+  background-image: url(../img/logobg2.jpg);
+  color: white;
+  text-shadow: 2px 2px black;
+  padding: 25px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+
+}
+
+.header-picture {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  margin: -25px;
+}
+
+.header-container img {
+  border-radius: 100%;
+  width: 20%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7), 0 12px 40px 0 rgba(0, 0, 0, 0.8);
+}
+
+p {
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.about-container {
+  border: 1px white solid;
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.about-container h2 {
+  padding: 30px;
+  padding-bottom: 15px;
+  width: 80%;
+  font-weight: 400;
+}
+
+.features-header {
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  text-shadow: 2px 2px black;
+  padding: 50px;
+}
+
+.features-container {
+  border: 1px white solid;
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.contact-header {
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  text-shadow: 2px 2px black;
+  padding: 50px;
+}
+
+.contact-container {
+  border: 1px white solid;
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: white;
+  padding: 20px;
+  overflow: auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.contact-container img {
+  float: right;
+  width: 40%;
+  border-radius: 15px;
+  margin: 3%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.hiw-header {
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  text-shadow: 2px 2px black;
+  padding: 50px;
+}
+
+.hiw-container {
+  text-align: left;
+  border: 1px white solid;
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.hiw-container ul {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-container .form-control {
+  width: 50%;
+}
+
+#contactMessage {
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+#contact-button {
+  width: 20%;
+}
+
+label{
+  padding-top: 20px;
+}
+
+.footer {
+  bottom: 0;
+  /*border: 1px solid grey;*/
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.footer p {
+  margin-right: 0px;
+  margin-bottom: 0px;
+  color: white;
+  padding-right: 0px;
+}
+
+.about-container img {
+  width: 20%;
+  margin: 25px;
+  float: left;
+  border-radius: 25%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.features-container img {
+  width: 23%;
+  margin-right: 5%;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  float: right;
+  border-radius: 25%;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+.features-container p {
+  margin: 5px;
+  padding: 10px;
+}
+
+#private {
+  display:none;
+}
+
+#HIWIndicators {
+  /* height: 50%; */
+  width: 100%;
+  display: block;
+  margin-left: 20px;
+  border: 1px solid black;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rounded-img {
+  border-radius: 8px;
+}
+
+#instructionList {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 280px;
+  max-height: 280px;
+}
+
+.carousel-item p {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  bottom: 0;
+  /* text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000; */
+}
+
+.carousel-control-prev-icon {
+ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#861d41' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#861d41' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-caption {
+  bottom: -15px;
+}
+
+
+/* PICTURE MODAL STUFF */
+ /* Style the Image Used to Trigger the Modal */
+ .myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.picModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+      width: 100%;
+  }
+}

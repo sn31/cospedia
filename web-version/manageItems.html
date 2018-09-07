@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cospedia - Manage Items</title>
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/manageItems.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/manageItems.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="navbar" id="private">
+            <button class="btn btn-success" type="button" id="backToHomePage">Home Page</button>
+            <button class="btn btn-primary" type="button" id="signOutButton">Sign Out</button>
+        </div>
+        <div class="icon-container">
+            <img src="img/lady.png" alt="Lady Profile" />
+            <h5>
+                <span id="email-display"></span><br>
+                Number of items: <span id="item-num-display"></span>
+            </h5>
+        </div>
+        <div class="modal-container">
+            <!--Modal for 'Add Items'-->
+            <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addItem">
+                                <div class="form-group">
+                                    <label for="upc">UPC: </label>
+                                    <input type="number" id="upc" class="form-control upc_add">
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">
+                                        Brand:
+                                    </label>
+                                    <input type="text" id="brand" class="form-control brand_add">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">
+                                        Item Name:
+                                    </label>
+                                    <input type="text" id="name" class="form-control name_add">
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">
+                                        Category:
+                                    </label>
+                                    <select class="form-control category_add" id="category">
+                                        <option id="skincare" seleted>Skincare</option>
+                                        <option id="makeup">Makeup</option>
+                                        <option id="bathAndBody">Bath and Body</option>
+                                        <option id="hair">Hair</option>
+                                        <option id="fragrance">Fragrance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product_type">
+                                        Product Type:
+                                    </label>
+                                    <select class="form-control product_type_add" id="product_type">
+                                        <option id="cleansers" value="cleansers" selected>Cleansers</option>
+                                        <option id="eyeCare" value="eyeCare">Eye Care</option>
+                                        <option id="lipTreatments" value="lipTreatments">Lip Treatments</option>
+                                        <option id="masks" value="masks">Masks</option>
+                                        <option id="moisturizers" value="moisturizers">Moisturizers</option>
+                                        <option id="selfTannersForFace" value="selfTannersForFace">Self Tanners For Face</option>
+                                        <option id="shaving" value="shaving">Shaving</option>
+                                        <option id="sunCareForFace" value="sunCareForFace">Sun Care For Face</option>
+                                        <option id="treatments" value="treatments">Treatments</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="openingDate">
+                                        Opened Date:
+                                    </label>
+                                    <input type="date" id="openingDate" class="form-control openingDate_add">
+                                </div>
+                                <div class="form-group">
+                                    <label for="shelfLife">
+                                        Shelf Life:
+                                    </label>
+                                    <input type="number" id="shelfLife" class="form-control shelfLife_add" min="0" max="120" placeholder="Shelf life in months">
+                                    <span>Example</span>
+                                    <img src="img/shelfLifeExample.jpg" id="shelfLifeExample" class="mt-3">
+                                </div>
+
+                                <!-- <button  data-dismiss="modal" type="submit" class="btn btn-info">Submit</button> -->
+                                <button type="submit" class="btn btn-info">Submit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal for 'Edit Items'-->
+            <div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="editItemModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editItemModalLabel">Edit Item</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editItem">
+                                <div class="form-group">
+                                    <label for="upc">UPC: </label>
+                                    <input type="number" id="upc" class="form-control upc_edit" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">
+                                        Brand:
+                                    </label>
+                                    <input type="text" id="brand" class="form-control brand_edit">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">
+                                        Item Name:
+                                    </label>
+                                    <input type="text" id="name" class="form-control name_edit">
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">
+                                        Category:
+                                    </label>
+                                    <select class="form-control category_edit" id="category">
+                                        <option id="skincare">Skincare</option>
+                                        <option id="makeup">Makeup</option>
+                                        <option id="bathAndBody">Bath and Body</option>
+                                        <option id="hair">Hair</option>
+                                        <option id="fragrance">Fragrance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product_type">
+                                        Product Type:
+                                    </label>
+                                    <select class="form-control product_type_edit" id="product_type">
+                                        <option value="cleansers">Cleansers</option>
+                                        <option value="eyeCare">Eye Care</option>
+                                        <option value="lipTreatments">Lip Treatments</option>
+                                        <option value="masks">Masks</option>
+                                        <option value="moisturizers">Moisturizers</option>
+                                        <option value="selfTannersForFace">Self Tanners For Face</option>
+                                        <option value="shaving">Shaving</option>
+                                        <option value="sunCareForFace">Sun Care For Face</option>
+                                        <option value="treatments">Treatments</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="openingDate">
+                                        Opened Date:
+                                    </label>
+                                    <input type="date" id="openingDate" class="form-control openingDate_edit">
+                                </div>
+                                <div class="form-group">
+                                    <label for="shelfLife">
+                                        Shelf Life:
+                                    </label>
+                                    <input type="number" id="shelfLife" class="form-control shelfLife_edit" min="0" max="120" placeholder="Shelf life in months">
+                                    <span>Example</span>
+                                    <img src="img/shelfLifeExample.jpg" id="shelfLifeExample" class="mt-3">
+                                </div>
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End modal for 'Edit Items'-->
+        </div>
+        <div class="main-body">
+            <div id="menuBar">
+                <h1>Manage your items here:</h1>
+                <button class="btn btn-info" id="addItemButton" data-toggle="modal" data-target="#addItemModal">Add Item</button>
+            </div>
+            <div id="itemList">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">The day you opened this item</th>
+                            <th scope="col">Expected expiration date</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemListBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

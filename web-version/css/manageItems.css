@@ -1,0 +1,102 @@
+.itemTitleLink {
+    color: inherit;
+}
+
+.itemTitleLink:hover {
+    color: inherit;
+}
+
+.itemTitleLink:visited {
+    color: inherit;
+}
+
+#editItem {
+    display: none;
+}
+
+#shelfLifeExample {
+    width: 100px;
+    height: auto;
+}
+
+body {
+    background-image: url(../img/logobg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Cinzel', serif;
+}
+
+.icon-container {
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 25%;
+    /* border: 1px solid black; */
+    overflow: auto;
+    /* background-image: radial-gradient(whitesmoke, grey); */
+    text-align: center;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+} 
+
+.icon-container img {
+    width: 80%;
+}
+
+.main-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-top: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.main-body h1 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#itemList, #editItem {
+    padding: 15px;
+}
+
+#menuBar {
+    margin:5px;
+    margin-right: 27px;
+    position: relative;
+}
+
+#addItemButton {
+    position: absolute;
+    right: 1px;
+    top: 5px;
+    width: 10%;
+    font-size: 20px;
+}
+
+.navbar {
+    display: block;
+    text-align: right;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /*border: 1px solid grey;*/
+    margin-left: -15px;
+    margin-right: -15px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  #shelfLifeExample {
+    width: 100px;
+    height: auto;
+}
+
+h5 {
+    background-color: black;
+    color: white;
+  }
