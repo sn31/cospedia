@@ -30,8 +30,12 @@ export default class BarCodeScannerExample extends React.Component {
   }
   _handleBarCodeRead = ({ type, data }) => {
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    var productList = firebase.database().ref('user/' + firebase.auth().currentUser.uid + '/products');
+    var product = productList.push();
+    product.set({
+      type: type,
+      data: data
+    });
   }
-  
-  
 }
 
